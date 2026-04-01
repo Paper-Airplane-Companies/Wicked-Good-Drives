@@ -1,8 +1,3 @@
-/* =========================
-   Wicked Good Drives
-   Main Stylesheet
-   ========================= */
-
 :root {
   --color-primary: #0F5A43;
   --color-primary-dark: #0B4634;
@@ -30,10 +25,6 @@
   --transition: 0.25s ease;
 }
 
-/* =========================
-   Base Reset
-   ========================= */
-
 *,
 *::before,
 *::after {
@@ -60,7 +51,7 @@ img {
 a {
   color: var(--color-primary);
   text-decoration: none;
-  transition: color var(--transition), background-color var(--transition), border-color var(--transition), transform var(--transition);
+  transition: color var(--transition), background-color var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 a:hover {
@@ -86,7 +77,8 @@ h3,
 h4 {
   font-family: var(--font-heading);
   color: var(--color-heading);
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 section {
@@ -97,10 +89,6 @@ section {
   width: min(100% - 2rem, var(--max-width));
   margin: 0 auto;
 }
-
-/* =========================
-   Accessibility
-   ========================= */
 
 .skip-link {
   position: absolute;
@@ -116,10 +104,6 @@ section {
 .skip-link:focus {
   top: 1rem;
 }
-
-/* =========================
-   Header
-   ========================= */
 
 .site-header {
   background: rgba(255, 255, 255, 0.96);
@@ -198,10 +182,6 @@ section {
   border-radius: 99px;
 }
 
-/* =========================
-   Buttons
-   ========================= */
-
 .button {
   display: inline-flex;
   align-items: center;
@@ -220,25 +200,27 @@ section {
 }
 
 .button-primary {
-  background: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary), #12684d);
   color: #FFFFFF;
   box-shadow: 0 12px 30px rgba(15, 90, 67, 0.18);
 }
 
 .button-primary:hover {
-  background: var(--color-primary-dark);
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
   color: #FFFFFF;
 }
 
 .button-secondary {
-  background: transparent;
+  background: #FFFFFF;
   color: var(--color-secondary);
-  border-color: var(--color-secondary);
+  border-color: rgba(22, 58, 95, 0.18);
+  box-shadow: 0 10px 24px rgba(22, 58, 95, 0.08);
 }
 
 .button-secondary:hover {
   background: var(--color-secondary);
   color: #FFFFFF;
+  border-color: var(--color-secondary);
 }
 
 .button-small {
@@ -246,44 +228,42 @@ section {
   font-size: 0.95rem;
 }
 
-/* =========================
-   Hero
-   ========================= */
-
 .hero {
   padding: 5.5rem 0 4rem;
-  background:
-    linear-gradient(135deg, rgba(15, 90, 67, 0.08), rgba(22, 58, 95, 0.08)),
-    var(--color-bg);
 }
 
-.hero-grid {
+.hero-home-upgrade {
+  background:
+    radial-gradient(circle at top right, rgba(200, 162, 74, 0.16), transparent 30%),
+    radial-gradient(circle at top left, rgba(15, 90, 67, 0.12), transparent 35%),
+    linear-gradient(180deg, #FDFEFF 0%, #F7F9FB 60%, #F0F4F8 100%);
+}
+
+.hero-home-grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 2rem;
   align-items: center;
 }
 
 .eyebrow,
-.section-eyebrow,
-.card-label {
+.section-eyebrow {
   display: inline-block;
   font-size: 0.82rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-weight: 800;
-}
-
-.eyebrow,
-.section-eyebrow {
   color: var(--color-accent);
   margin-bottom: 1rem;
 }
 
-.hero h1 {
-  font-size: clamp(2.4rem, 5vw, 4.5rem);
+.hero-home-title {
+  font-size: clamp(2.7rem, 5vw, 4.8rem);
   margin-bottom: 1rem;
-  max-width: 12ch;
+  max-width: 11ch;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55),
+    0 8px 18px rgba(22, 58, 95, 0.08);
 }
 
 .hero-text {
@@ -317,51 +297,126 @@ section {
   box-shadow: 0 8px 22px var(--color-shadow);
 }
 
-.hero-card {
-  display: flex;
-  justify-content: stretch;
-}
-
-.hero-card-inner {
+.hero-showcase-card {
   background: linear-gradient(180deg, #FFFFFF, #F6F9FC);
   border: 1px solid rgba(217, 226, 236, 0.95);
-  border-radius: var(--radius-large);
-  padding: 2rem;
+  border-radius: 28px;
+  padding: 1.4rem;
   box-shadow: 0 24px 50px var(--color-shadow-strong);
-  width: 100%;
 }
 
-.card-label {
-  color: var(--color-primary);
-  margin-bottom: 0.8rem;
-}
-
-.hero-card h2 {
-  font-size: 1.7rem;
+.hero-showcase-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
-.hero-card p {
-  color: var(--color-text-light);
-  margin-bottom: 1.5rem;
-}
-
-.contact-quick-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.contact-quick-info a {
+.hero-chip {
   display: inline-flex;
-  width: fit-content;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  background: rgba(15, 90, 67, 0.1);
+  color: var(--color-primary);
+  font-size: 0.85rem;
   font-weight: 700;
+}
+
+.hero-chip-outline {
+  background: rgba(22, 58, 95, 0.08);
   color: var(--color-secondary);
 }
 
-/* =========================
-   Shared Sections
-   ========================= */
+.hero-screen {
+  min-height: 300px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(15, 90, 67, 0.16), rgba(22, 58, 95, 0.12)),
+    linear-gradient(135deg, #173E33, #163A5F);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.hero-screen-glow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(200, 162, 74, 0.35) 0%, transparent 70%);
+  top: -30px;
+  right: -30px;
+}
+
+.hero-screen-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.45;
+}
+
+.hero-screen-content {
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
+  bottom: 2rem;
+  color: #FFFFFF;
+}
+
+.hero-screen-content p {
+  margin-bottom: 0.55rem;
+  color: rgba(255,255,255,0.88);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.84rem;
+}
+
+.hero-screen-content h2 {
+  color: #FFFFFF;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  margin-bottom: 0;
+  max-width: 10ch;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.12),
+    0 8px 18px rgba(0,0,0,0.18);
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+
+.hero-stat {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(217, 226, 236, 0.92);
+  border-radius: 18px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 10px 22px rgba(22, 58, 95, 0.08);
+}
+
+.hero-stat-title {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-secondary);
+}
+
+.hero-stat-label {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  margin-top: 0.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
 
 .section {
   padding: 5rem 0;
@@ -391,10 +446,6 @@ section {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 1rem;
 }
-
-/* =========================
-   Trust Bar
-   ========================= */
 
 .trust-bar {
   padding: 1.5rem 0;
@@ -426,10 +477,6 @@ section {
   color: var(--color-text-light);
   margin-bottom: 0;
 }
-
-/* =========================
-   Cards
-   ========================= */
 
 .card-grid {
   display: grid;
@@ -465,10 +512,6 @@ section {
   margin-top: 2rem;
 }
 
-/* =========================
-   Features Section
-   ========================= */
-
 .features-section {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(240, 246, 251, 0.9));
 }
@@ -503,10 +546,6 @@ section {
   color: var(--color-text-light);
 }
 
-/* =========================
-   Service Area
-   ========================= */
-
 .service-area-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -533,10 +572,6 @@ section {
 .service-area-list li:last-child {
   border-bottom: 0;
 }
-
-/* =========================
-   Final CTA
-   ========================= */
 
 .final-cta-box {
   background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
@@ -570,16 +605,14 @@ section {
 .final-cta-box .button-secondary {
   border-color: rgba(255, 255, 255, 0.85);
   color: #FFFFFF;
+  background: transparent;
+  box-shadow: none;
 }
 
 .final-cta-box .button-secondary:hover {
   background: #FFFFFF;
   color: var(--color-secondary);
 }
-
-/* =========================
-   Footer
-   ========================= */
 
 .site-footer {
   background: #102A43;
@@ -626,10 +659,6 @@ section {
   font-size: 0.95rem;
 }
 
-/* =========================
-   Utility Styles for Future Pages
-   ========================= */
-
 .page-hero {
   padding: 4.5rem 0 2.5rem;
   background: linear-gradient(135deg, rgba(15, 90, 67, 0.08), rgba(22, 58, 95, 0.08));
@@ -667,10 +696,6 @@ section {
   display: grid;
   gap: 1.25rem;
 }
-
-/* =========================
-   Future Form Styles
-   ========================= */
 
 .form-card {
   background: var(--color-surface);
@@ -715,12 +740,29 @@ section {
   border-color: var(--color-accent);
 }
 
-/* =========================
-   Responsive
-   ========================= */
+[data-fs-success],
+[data-fs-error] {
+  display: none;
+  margin-bottom: 1rem;
+  padding: 0.95rem 1rem;
+  border-radius: 14px;
+  font-weight: 600;
+}
+
+[data-fs-success] {
+  background: rgba(15, 90, 67, 0.08);
+  color: var(--color-primary);
+  border: 1px solid rgba(15, 90, 67, 0.16);
+}
+
+[data-fs-error] {
+  background: rgba(198, 40, 40, 0.08);
+  color: #8A1C1C;
+  border: 1px solid rgba(198, 40, 40, 0.16);
+}
 
 @media (max-width: 980px) {
-  .hero-grid,
+  .hero-home-grid,
   .features-grid,
   .service-area-grid,
   .footer-grid,
@@ -730,12 +772,16 @@ section {
     grid-template-columns: 1fr;
   }
 
-  .hero h1 {
+  .hero-home-title {
     max-width: 100%;
   }
 
   .final-cta-box {
     padding: 2.2rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -788,7 +834,8 @@ section {
     padding: 4rem 0;
   }
 
-  .hero-card-inner,
+  .hero-showcase-card,
+  .hero-screen,
   .content-box,
   .form-card {
     padding: 1.5rem;
@@ -824,6 +871,16 @@ section {
 
   .hero-highlights li {
     width: 100%;
+  }
+
+  .hero-screen {
+    min-height: 240px;
+  }
+
+  .hero-screen-content {
+    left: 1.2rem;
+    right: 1.2rem;
+    bottom: 1.2rem;
   }
 
   .final-cta-box {
