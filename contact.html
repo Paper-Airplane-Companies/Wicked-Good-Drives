@@ -57,7 +57,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html" class="button button-small" aria-current="page">Contact</a></li>
+          <li><a href="contact.html" class="button button-small" aria-current="page">Request a Quote</a></li>
         </ul>
       </nav>
     </div>
@@ -87,19 +87,36 @@
             the best setup for your guests.
           </p>
 
+          <div data-fs-success>
+            Thank you. Your request has been submitted successfully.
+          </div>
+          <div data-fs-error>
+            Sorry, something went wrong. Please try again or call us directly.
+          </div>
+
           <form
-            action="https://formspree.io/f/your-form-id"
+            id="contact-form"
+            action="https://formspree.io/f/mnjozowv"
             method="POST"
+            data-formspree-form-id="mnjozowv"
           >
+            <input
+              type="hidden"
+              name="subject"
+              value="New website quote request for Wicked Good Drives"
+            />
+
             <div class="form-group">
               <label for="name">Full Name</label>
               <input
                 type="text"
                 id="name"
-                name="Full Name"
+                name="name"
                 placeholder="Your full name"
                 required
+                data-fs-field
               />
+              <span data-fs-error="name"></span>
             </div>
 
             <div class="form-group">
@@ -107,10 +124,12 @@
               <input
                 type="email"
                 id="email"
-                name="Email"
+                name="email"
                 placeholder="you@example.com"
                 required
+                data-fs-field
               />
+              <span data-fs-error="email"></span>
             </div>
 
             <div class="form-group">
@@ -118,14 +137,16 @@
               <input
                 type="tel"
                 id="phone"
-                name="Phone"
+                name="phone"
                 placeholder="352-555-1234"
+                data-fs-field
               />
+              <span data-fs-error="phone"></span>
             </div>
 
             <div class="form-group">
               <label for="event-type">Event Type</label>
-              <select id="event-type" name="Event Type" required>
+              <select id="event-type" name="event_type" required data-fs-field>
                 <option value="">Select an event type</option>
                 <option>Corporate Event</option>
                 <option>Private Party</option>
@@ -136,6 +157,7 @@
                 <option>School or Community Event</option>
                 <option>Other</option>
               </select>
+              <span data-fs-error="event_type"></span>
             </div>
 
             <div class="form-group">
@@ -143,8 +165,10 @@
               <input
                 type="date"
                 id="event-date"
-                name="Event Date"
+                name="event_date"
+                data-fs-field
               />
+              <span data-fs-error="event_date"></span>
             </div>
 
             <div class="form-group">
@@ -152,9 +176,11 @@
               <input
                 type="text"
                 id="location"
-                name="Event Location"
+                name="location"
                 placeholder="City, venue, or address"
+                data-fs-field
               />
+              <span data-fs-error="location"></span>
             </div>
 
             <div class="form-group">
@@ -162,22 +188,28 @@
               <input
                 type="text"
                 id="guest-count"
-                name="Estimated Guest Count"
+                name="guest_count"
                 placeholder="Example: 30 guests"
+                data-fs-field
               />
+              <span data-fs-error="guest_count"></span>
             </div>
 
             <div class="form-group">
               <label for="message">Event Details</label>
               <textarea
                 id="message"
-                name="Message"
+                name="message"
                 placeholder="Tell us about your event, timing, setup needs, and anything else we should know."
                 required
+                data-fs-field
               ></textarea>
+              <span data-fs-error="message"></span>
             </div>
 
-            <button type="submit" class="button button-primary">Request My Quote</button>
+            <button type="submit" class="button button-primary" data-fs-submit-btn>
+              Request My Quote
+            </button>
           </form>
         </div>
 
@@ -272,6 +304,14 @@
     </div>
   </footer>
 
+  <script>
+    window.formspree =
+      window.formspree ||
+      function () {
+        (formspree.q = formspree.q || []).push(arguments);
+      };
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1"></script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>
