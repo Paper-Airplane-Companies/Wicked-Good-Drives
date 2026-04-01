@@ -241,9 +241,13 @@ section {
 
 .hero-home-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
+}
+
+.hero-copy {
+  max-width: 860px;
 }
 
 .eyebrow,
@@ -260,7 +264,7 @@ section {
 .hero-home-title {
   font-size: clamp(2.7rem, 5vw, 4.8rem);
   margin-bottom: 1rem;
-  max-width: 11ch;
+  max-width: 12ch;
   text-shadow:
     0 1px 0 rgba(255, 255, 255, 0.55),
     0 8px 18px rgba(22, 58, 95, 0.08);
@@ -295,6 +299,10 @@ section {
   font-weight: 600;
   color: var(--color-heading);
   box-shadow: 0 8px 22px var(--color-shadow);
+}
+
+.hero-showcase {
+  display: none;
 }
 
 .hero-showcase-card {
@@ -416,6 +424,60 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 700;
+}
+
+.proof-strip {
+  margin-top: -1rem;
+  padding: 0 0 2.2rem;
+}
+
+.proof-strip-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.proof-strip-intro,
+.proof-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(217, 226, 236, 0.95);
+  border-radius: 24px;
+  padding: 1.4rem;
+  box-shadow: 0 16px 32px var(--color-shadow);
+}
+
+.proof-label {
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.proof-title {
+  margin-bottom: 0;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  line-height: 1.15;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55),
+    0 8px 18px rgba(22, 58, 95, 0.08);
+}
+
+.proof-card-kicker {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.proof-card p {
+  margin-bottom: 0;
+  color: var(--color-text-light);
 }
 
 .section {
@@ -762,7 +824,7 @@ section {
 }
 
 @media (max-width: 980px) {
-  .hero-home-grid,
+  .proof-strip-grid,
   .features-grid,
   .service-area-grid,
   .footer-grid,
@@ -834,8 +896,6 @@ section {
     padding: 4rem 0;
   }
 
-  .hero-showcase-card,
-  .hero-screen,
   .content-box,
   .form-card {
     padding: 1.5rem;
@@ -871,16 +931,6 @@ section {
 
   .hero-highlights li {
     width: 100%;
-  }
-
-  .hero-screen {
-    min-height: 240px;
-  }
-
-  .hero-screen-content {
-    left: 1.2rem;
-    right: 1.2rem;
-    bottom: 1.2rem;
   }
 
   .final-cta-box {
