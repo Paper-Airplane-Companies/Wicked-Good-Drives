@@ -53,6 +53,7 @@
         aria-controls="siteNav"
         aria-label="Open navigation menu"
         type="button"
+        onclick="var nav=document.getElementById('siteNav'); var isOpen=nav.classList.toggle('open'); this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');"
       >
         <span></span>
         <span></span>
